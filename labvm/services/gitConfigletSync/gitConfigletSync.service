@@ -1,0 +1,13 @@
+[Unit]
+Description=Automatically updates configlets
+After=atdFiles.service
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/gitConfigletSync.py
+TimeoutStartSec=900
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target
